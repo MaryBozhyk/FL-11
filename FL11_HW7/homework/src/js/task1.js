@@ -1,4 +1,4 @@
-let emailLenght = 6,
+const emailLenght = 6,
 passLength = 5;
 
 let email = prompt('Please, write email')
