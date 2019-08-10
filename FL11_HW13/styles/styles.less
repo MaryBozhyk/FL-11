@@ -1,0 +1,56 @@
+@import "variables.less";
+
+h1, h3 {
+color: @blue;
+border-color: @blue;
+}
+
+.nav-item {
+    &.active {
+      background-color: @blue;
+
+      .nav-link {
+        color: @white;
+      }
+    }
+}
+
+.article__card--red{
+    border: 1px solid @red;
+    .article__card--title{
+        background-color: @red;
+        text-decoration: none;
+        color: @white;
+    }
+}
+
+.article__card--blue{
+    border: 1px solid @blue;
+    .article__card--title{
+        background-color: @blue;
+        text-decoration: none;
+        color: @white;
+    }
+}
+
+.article__card--yellow{
+    border: 1px solid @yellow;
+    .article__card--title{
+        background-color: @yellow;
+        text-decoration: none;
+        color: @white;
+    }
+}
+
+.article__card--green{
+    border: 1px solid @green;
+    .article__card--title{
+        background-color: @green;
+        text-decoration: none;
+        color: @white;
+    }
+}
+
+.footer__container--color{
+    background-color: @grey;
+}
