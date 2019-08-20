@@ -25,6 +25,9 @@ function Charmander() {
     Pokemon.call(this)
 }
 
+Charmander.prototype = Object.create(Pokemon.prototype);
+Charmander.prototype.constructor = Charmander;
+
 function Charmeleon() {
     this.type = 'Fire';
     this.specie = 'Flame Pokémon';
@@ -34,6 +37,9 @@ function Charmeleon() {
     Pokemon.call(this);
 }
 
+Charmeleon.prototype = Object.create(Pokemon.prototype);
+Charmeleon.prototype.constructor = Charmeleon;
+
 function Charizard() {
     this.type = 'Fire';
     this.specie = 'Flame Pokémon';
@@ -42,6 +48,9 @@ function Charizard() {
     this.evolve = () => this;
     Pokemon.call(this);
 }
+
+Charizard.prototype = Object.create(Pokemon.prototype);
+Charizard.prototype.constructor = Charizard;
 
 function basePichu() {
     this.type = 'Electric';
@@ -56,12 +65,18 @@ function Pichu() {
     Pokemon.call(this);
 }
 
+Pichu.prototype = Object.create(Pokemon.prototype);
+Pichu.prototype.constructor = Pichu;
+
 function Pikachu() {
     basePichu();
     this.pockemonType = 'Pikachu';
     this.evolve = () => new Raichu();
     Pokemon.call(this);
 }
+
+Pikachu.prototype = Object.create(Pokemon.prototype);
+Pikachu.prototype.constructor = Pikachu;
 
 function Raichu() {
     basePichu();
@@ -70,10 +85,13 @@ function Raichu() {
     Pokemon.call(this);
 }
 
+Raichu.prototype = Object.create(Pokemon.prototype);
+Raichu.prototype.constructor = Raichu;
 
-// const charmander = new Charmander();
-// const charmeleon = new Charmeleon();
-// const charizard = new Charizard();
+
+const charmander = new Charmander();
+const charmeleon = new Charmeleon();
+const charizard = new Charizard();
 // console.log(charmander);
 // console.log(charmeleon);
 // console.log(charizard);
