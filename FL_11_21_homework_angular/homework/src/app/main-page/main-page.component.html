@@ -1,0 +1,34 @@
+<header>
+    <div>
+        <a routerLink="/main">
+            <img src="../../assets/img/icon.png" alt="icon">
+        </a>
+        <h1>{{ itemSelected || "My sources" | uppercase }}</h1>
+        <a routerLink="/login">
+            <img src="../../assets/img/user.png" alt="user">
+        </a>
+    </div>
+    <nav>
+        <select [(ngModel)]="itemSelected" (ngModelChange)=onChange($event)>
+            <option [ngValue]="selected" disabled>Select your option</option>
+            <option>All sources</option>
+            <option *ngFor="let item of this.mainService.listItems | unique" [value]="item">{{ item }}</option>
+        </select>
+        <div>
+            <input type="text" placeholder="Type your text..." #search>
+            <button type="button" (click)=onClick(search.value)>Filter</button>
+        </div>
+        <button type="button" routerLink="/add">Add article</button>
+    </nav>
+</header>
+<main>
+    <div *ngFor="let item of this.sources">
+        <img src={{item.image}} alt="img">
+        <div>
+            <p class="date">Date: {{ item.date | date: 'fullDate' }}</p>
+            <h2>{{item.heading}}</h2>
+            <p>{{ item.shortDescription }}</p>
+            <a routerLink="/article/{{ item.id }}">Read more...</a>
+        </div>
+    </div>
+</main>
