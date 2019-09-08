@@ -1,0 +1,208 @@
+@mixin underline($top, $left, $width, $height) {
+    content: '';
+    z-index: -100;
+    background-color: $lineCol;
+    position: absolute;    
+    margin-top: $top;
+    margin-left: $left;
+    width: $width;
+    height: $height;
+}
+
+.logo{
+    width: 9vw;
+    height: 3.3vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    p{
+        width: 4vw;
+        font-size: 1.6vw;
+        font-weight: bold;
+        font-family: map-get($fonts, 'logoFont');
+        text-align: center;
+        span{
+            font-size: 0.8vw;
+            font-weight: normal;
+            font-family: map-get($fonts, 'pageFont');
+            display: inline-block;
+            position: relative;
+            top: -0.5vw;
+            width: 4vw;
+        }
+    }           
+}
+
+.button{
+    width: 9.5vw;
+    height: 3.5vw;
+    background-color: $btnCol;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    &:hover {
+        cursor: pointer;
+        background-color: lighten($btnCol, 10%);        
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body{
+    background-color: $bgrCol;
+    header{
+        width: 100vw;
+        height: 47vw;
+        background: url($bgrImg) no-repeat;
+        background-size: 100% 110%;
+        padding: 1vw 47vw 11vw 11vw;
+        border-radius: 0 0 45% 0;
+        color: $txtCol;
+        .header-wrap{
+            width: 43vw;
+            height: 35vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;   
+            .landing-logo{
+                @extend .logo;
+            }  
+            .header_heading{
+                font-family: map-get($fonts, 'headerFont');
+                width: 33vw;
+                font-size: 3.8vw;
+                font-weight: bold;
+                z-index: 100;
+                &::before {
+                    @include underline($top:7.5vw, $left:0vw, $width:15vw, $height:2vw);
+                }
+            }  
+            .header_text{
+                white-space: pre-line;
+                font-size: 1.1vw;
+            }     
+            .header_button{
+                @extend .button;
+            }
+            
+        }
+    }
+    main{
+        height: 47vw;
+        width: 100vw;
+        padding: 3vw 11vw 14vw;
+        .section_text{
+            font-family: map-get($fonts, 'headerFont');
+            text-align: center;
+            font-size: 1.9vw;
+            color: $txtCol;
+            font-weight: bold;
+            margin: 0 0 3vw 0;
+            z-index: 100;
+            &::before {
+                @include underline($top:1.5vw, $left:10vw, $width:8vw, $height:0.8vw);
+            }
+        }
+        .section_card_wrap{
+            width: 100%;
+            height: 30vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .section_card{
+                width: 25vw;
+                height: 28vw;
+                font-family: map-get($fonts, 'pageFont');
+                background-color: $partBgr;
+                color: #ffffff;
+                padding: 1.5vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 2%;
+                .section_card_img{
+                    width: 100%;
+                    height: 50%;
+                    border-radius: 2%;
+                }
+                .section_card_heading{
+                    font-size: 1.5vw;
+                    font-weight: bold;
+                    .section_card_underline{
+                        display: block;
+                        height: 0.6vw;
+                        margin-top: -0.6vw;
+                        background-color: $lineCol;;
+                    }
+                }
+                .section_card_text{
+                    opacity: 0.6;
+                    font-size: 1vw;
+                    text-align: center;
+                }
+            }
+        }
+        .section_banner{
+            width: 62vw;
+            height: 10vw;
+            background: $gradBgr;
+            border-radius: 0.5vw;
+            z-index: 100;
+            position: relative;
+            margin: 4vw auto;
+            padding: 3vw 8vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .section_banner_text_wrap{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .section_banner_heading{
+                    color: $txtCol;
+                    font-family: map-get($fonts, 'headerFont');
+                    font-weight: bold;
+                    font-size:  1.8vw;
+                    &::before {
+                        @include underline($top:1.4vw, $left:7.3vw, $width:3.6vw, $height:0.8vw);
+                    }
+                }
+                .section_banner_text{
+                    color: #ffffff;
+                    font-size: 1vw;
+                }
+            }
+            .section_banner_button{
+                @extend .button;
+            }
+        }
+    }
+    footer{
+        width: 100vw;
+        height: 15.8vw;
+        background: $partBgr;
+        z-index: -100;
+        padding: 8.5vw 3vw 3.6vw 11vw;
+        .footer-wrap{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: #ffffff;
+            opacity: 0.7;
+            .footer_logo{
+                @extend .logo;
+            }
+            .footer_text{
+                width: 19.5vw;
+                font-size: 1vw;
+            }
+        }
+    }
+}
