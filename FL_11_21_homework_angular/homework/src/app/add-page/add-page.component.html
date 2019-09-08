@@ -1,0 +1,34 @@
+<header>
+    <h1>Create news</h1>
+</header>
+<main>
+    <form class="addNews" [formGroup]="addForm" (ngSubmit)="addNews()">
+        <label>
+            <span>Heading:</span>
+            <input type="text" formControlName="heading" placeholder="Add heading...">
+        </label>
+        <label>
+            <span>Date:</span>
+            <input type="date" formControlName="date">
+        </label>
+        <label>
+            <span>Short description:</span>
+            <input type="text" formControlName="shortDescription" placeholder="Add description...">
+        </label>
+
+        <label>
+            <span>Source:</span>
+            <input type="text" formControlName="source" placeholder="Add source...">
+        </label>
+        <label>
+            <span>Content:</span>
+            <textarea formControlName="content" cols="30" rows="10"></textarea>
+        </label>
+        <label>
+            <span>Author:</span>
+            <input type="text" formControlName="author" placeholder="Add author...">
+        </label>
+        <button type="submit" [disabled]="!addForm.valid">Save</button>
+        <button routerLink="/main">Cancel</button>
+    </form>
+</main>
