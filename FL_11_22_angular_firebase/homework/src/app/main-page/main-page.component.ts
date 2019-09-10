@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MainService } from '../shared/main.service';
 
 @Component({
@@ -12,18 +11,18 @@ export class MainPageComponent implements OnInit {
 
   sources: any;
   itemSelected: string;
-
-  listItems: any;
+  listItems = [];
 
   constructor(
     public mainService: MainService
   ) {}
 
   ngOnInit() {
-      this.listItems = this.mainService.getAll();
+      this.mainService.getAll().subscribe(items =>{
+        items.forEach(x => this.listItems.push(x))
+      })
+
       this.getSources();
-      console.log(this.listItems)
-    
   }
 
   getSources(): void {
@@ -41,5 +40,4 @@ export class MainPageComponent implements OnInit {
   onClick(value: string): void {
     this.sources = this.listItems.filter(x => x.heading.includes(value));
   }
-
 }

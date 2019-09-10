@@ -30,5 +30,15 @@ export class MainService {
       })
     );
   }
+
+  getItem(key: string){
+    return this.db.list('listItems/' + key)
+    .snapshotChanges()
+    .pipe(
+      map(changes => {
+        return changes.map(c => (c.payload.key, c.payload.val()));
+      })
+    );
+  }
   
 }

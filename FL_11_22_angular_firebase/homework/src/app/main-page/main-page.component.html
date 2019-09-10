@@ -12,7 +12,7 @@
         <select [(ngModel)]="itemSelected" (ngModelChange)=onChange($event)>
             <option [ngValue]="selected" disabled>Select your option</option>
             <option>All sources</option>
-            <option *ngFor="let item of this.listItems | async" [value]="item.source">{{ item.source }}</option>
+            <option *ngFor="let item of this.listItems" [value]="item.source">{{ item.source }}</option>
         </select>
         <div>
             <input type="text" placeholder="Type your text..." #search>
@@ -22,13 +22,13 @@
     </nav>
 </header>
 <main>
-    <div *ngFor="let item of this.sources | async">
+    <div *ngFor="let item of this.sources">
         <img src={{item.image}} alt="img">
         <div>
             <p class="date">Date: {{ item.date | date: 'fullDate' }}</p>
             <h2>{{item.heading}}</h2>
             <p>{{ item.shortDescription }}</p>
-            <a routerLink="/article/{{ item.id }}">Read more...</a>
+            <a routerLink="/article/{{ item.key }}">Read more...</a>
         </div>
     </div>
 </main>

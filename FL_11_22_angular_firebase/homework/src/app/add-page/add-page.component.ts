@@ -10,6 +10,7 @@ import { MainService } from '../shared/main.service';
 })
 export class AddPageComponent implements OnInit {
   listItems: any;
+  
   addForm = this.fb.group({
     heading: ['', Validators.required],
     shortDescription: ['', Validators.required],
@@ -25,7 +26,9 @@ export class AddPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.listItems = this.mainService.getAll();
+    this.mainService.getAll().subscribe(items =>{
+      items.forEach(x => this.listItems.push(x))
+    })
   }
 
   addNews(){

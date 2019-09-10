@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MainService } from '../shared/main.service';
-import { Items } from '../items';
 
 @Component({
   selector: 'app-article-page',
@@ -11,7 +10,8 @@ import { Items } from '../items';
 })
 export class ArticlePageComponent implements OnInit {
   listItems: any;
-  item: Items;
+  item: any;
+  id: string;
 
   constructor(
     public mainService: MainService,
@@ -19,13 +19,16 @@ export class ArticlePageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.listItems = this.mainService.getAll();
+    this.mainService.getAll().subscribe(items =>{
+      items.forEach(x => this.listItems.push(x))
+    })
     this.getItem();
   }
 
   getItem() {
-    const id = +this.router.snapshot.paramMap.get('id');
-    this.item = this.listItems.find(number => number.id === id)
+    this.id = this.router.snapshot.paramMap.get('id');
+    this.mainService.getItem(this.id).subscribe(x => {
+      this.item = x});
   }
 
 }

@@ -3,16 +3,16 @@
         <a routerLink="/main">
             <img src="../../assets/img/icon.png" alt="icon">
         </a>
-        <h1>{{ item.source | uppercase }}</h1>
+        <h1>{{ item[7] | uppercase }}</h1>
         <a routerLink="/main">
             <img src="../../assets/img/arrow.png" alt="user">
         </a>
     </div>
 </header>
 <main>
-    <h2>{{item.heading}}</h2>
-    <img src={{item.image}} alt="img">
-    <p [innerHTML]="item.content"></p>
-    <p class="author">Author: {{ item.author }}</p>
-    <p class="date">Date: {{ item.date | date: 'fullDate' }}</p>
+    <h2>{{item[3]}}</h2>
+    <img src={{item[5]}} alt="img">
+    <p [innerHTML]="item[1]"></p>
+    <p class="author">Author: {{ item[0] }}</p>
+    <p class="date">Date: {{ item[2] | date: 'fullDate' }}</p>
 </main>
