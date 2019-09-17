@@ -1,0 +1,19 @@
+@mixin section($padding) {
+    padding: $padding;
+    width: 45%;
+    border: 5px double $headers;
+    color: $headers;
+}
+
+@mixin flex($justify-content) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justify-content;
+}
+
+@mixin headers($margin, $font-size) {
+    color: $headers;
+    margin: $margin;
+    font-size: $font-size;
+    text-align: center;
+}
