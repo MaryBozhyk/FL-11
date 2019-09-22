@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$turqoise: #26a69a;
+$red: #E57373;
+$gray: #f8f8f8;
+$white: #fff;
+
+$shadow:
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12),
+    0 1px 5px 0 rgba(0, 0, 0, 0.2);
+
+.root {
+    font-family: 'Open Sans', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-component {
+    width: 100%;
+    margin-bottom: 10px;    
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    box-shadow: $shadow;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .search-field{
+        border: transparent;
+        border-bottom: 1px solid black;
+    }
+}
+
+.table{
+    width: 90%;
+    margin: 10px auto 100px;
+    border-collapse: collapse;
+
+    .user-table-head{
+        background-color: $turqoise;
+        color: $white;
+
+       .user-row:nth-child(odd) {
+            background: $gray;
+        }
+
+        .user-cell-remove{
+            .remove-button{
+                background-color: $red;
+                color: $white;
+                cursor: pointer;
+                border: none;
+                box-shadow: $shadow;
+            }
+        }
+
+        .no-found{
+            color: $red;
+        }
+    }
+}
+
+.load-component{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid $gray;
+
+  .load-more-button{
+      width: 50%;
+      background: $gray;
+      border-radius: 10px;
+      border: none;
+      box-shadow: $shadow;
+      cursor: pointer;
+      text-transform: uppercase;
+  }
+}
+
